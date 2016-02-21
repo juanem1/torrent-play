@@ -1,0 +1,223 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Regular-webfont.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url("../fonts/OpenSans-Bold-webfont.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Semibold';
+  src: url("../fonts/OpenSans-Semibold-webfont.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    font-family: 'Open Sans Semibold';
+    background-color: white;
+    height: 275px;
+}
+
+body div {
+    color: grey;
+}
+
+.center {
+    text-align:center;
+}
+
+#top-message {
+    text-align:center;
+    color: rgba(1,1,1,0.45);
+    height: 20px;
+    margin-top:25px;
+}
+
+#info-message {
+    text-align:center;
+    color: rgba(1,1,1,0.25);
+    height: 20px;
+    margin-top:6px;
+    font-size: 0.8em;
+}
+
+#box-message {
+    height: auto;
+    margin: 10px auto auto auto;
+    font-size: 0.8em;
+}
+
+#dropmessage {
+    width:265px;
+    height:200px;
+    position:fixed;
+    margin-top: 25px;
+    z-index: 2;
+}
+
+#droparea {
+    height: 100px;
+}
+
+#droplogo {
+    height: 260px;
+    width: 260px;
+    border-radius: 0.7em;
+    margin: 0 auto;
+    margin-top: 17px;
+    border: 3px double rgba(1,1,1,0.15);
+    background-color: #f5f5f5;
+}
+
+.error {
+    color: red;
+}
+
+#arroww {
+    margin-top:20px;
+    margin-left:75px;
+    width: 50px;
+    height: 50px;
+}
+
+#arroww:before{
+    content:"";
+    position: absolute;
+    margin-top:50px;
+    margin-left:-40px;
+    border-top: 40px solid rgba(1,1,1,0.15);
+    border-left: 40px solid rgba(1,1,1,0);
+    width: 0;
+}
+
+#arroww:after{
+    content:"";
+    position: absolute;
+    margin-top:50px;
+    margin-left:0;
+    border-top: 40px solid rgba(1,1,1,0.15);
+    border-right: 40px solid rgba(1,1,1,0);
+    width: 0;
+}
+
+.disabled {
+    background-color: #777;
+}
+
+.enabled {
+    background: #ff5c00 url("../images/alert-overlay.png") repeat-x;
+    cursor: pointer;
+}
+
+.cursored {
+    cursor: pointer;
+    color: blue;
+    text-decoration:underline;
+}
+
+.offlabel {
+   visibility: hidden;
+}
+
+.deviceicon {
+   content:url("../images/AirplaySmall.png");
+}
+
+.chromeicon {
+   content:url("../images/ChromecastSmall.png");
+}
+
+.playbutton {
+    content:url("../images/play.png");
+    cursor:pointer;
+}
+
+.forwardbutton {
+    content:url("../images/forward.png");
+    cursor:pointer;
+}
+
+.rewindbutton {
+    content:url("../images/rewind.png");
+    cursor:pointer;
+}
+
+.stopbutton {
+    margin-top: -20px;
+   content:url("../images/stop.png");
+    cursor:pointer;
+}
+
+.pausebutton {
+    margin-top: -20px;
+   content:url("../images/pause.png");
+    margin-right:9px;
+    cursor:pointer;
+}
+
+.deviceiconOff {
+    content:url("../images/AirplaySmallOff.png");
+}
+
+.ChromedeviceiconOff {
+    content:url("../images/ChromecastSmallOff.png");
+}
+
+.controlbutton {
+    display: inline-block;
+}
+
+#airplay {
+    margin:auto;
+    width: 200px;
+    height: 100px
+    z-index: 3;
+}
+
+#topimages {
+    background: url("../images/logostop.png") no-repeat;
+    margin-top: 25px;
+    margin-bottom: -25px;
+    height: 100px;
+    margin-left: 20px;
+}
+
+#airplay img {
+    clear: both;
+    width:auto; 
+    max-height:100%;
+    background-image: url("../images/AirplayIcon.png");
+}
+.device {
+    font-size: 0.5em;
+    z-index:-1;
+    cursor:pointer;
+    display: inline-block;
+}
+
+.processing-icon {
+    content:"Hola";
+    margin:auto;
+    background-image: url("../images/loading.gif");
+    width:32px;
+    height:32px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#airplay-container {
+    height:100px;
+}
+
+#processing {
+    height: 32px;
+}
