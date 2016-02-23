@@ -8,19 +8,19 @@ var fs = require('fs');
 
 var BUILD_VERSION = 'v0.12.2';
 
-// Exec paths
-var START_PATHS = {
-    osx32: 'build/torrentPlay/osx32/torrentPlay.app/Contents/MacOS/nwjs .',
-    osx64: 'build/torrentPlay/osx64/torrentPlay.app/Contents/MacOS/nwjs .',
-    win32: 'build/torrentPlay/win32/torrentPlay.exe .',
-    win64: 'build/torrentPlay/win64/torrentPlay.exe .'
-};
 
 /**
  * Start task
  * Run: gulp start
  */
 gulp.task('start', function() {
+    var paths = {
+        osx32: 'build/torrentPlay/osx32/torrentPlay.app/Contents/MacOS/nwjs .',
+        osx64: 'build/torrentPlay/osx64/torrentPlay.app/Contents/MacOS/nwjs .',
+        win32: 'build/torrentPlay/win32/torrentPlay.exe .',
+        win64: 'build/torrentPlay/win64/torrentPlay.exe .'
+    };
+
     var options = {
         // default = false, true means don't emit error event
         continueOnError: false,
@@ -44,7 +44,7 @@ gulp.task('start', function() {
     };
 
     gulp.src('./src')
-        .pipe(exec(START_PATHS.osx64, options))
+        .pipe(exec(paths.osx64, options))
         .pipe(exec.reporter(reportOptions));
 });
 
@@ -54,8 +54,9 @@ gulp.task('start', function() {
  */
 gulp.task('build', function() {
     runSequence(
-        'build-clean',
-        'build-make',
+        'build:clean',
+        'generate-source-package-json',
+        'build:make',
         'build-copy-node-modules'
     );
 });
@@ -68,14 +69,14 @@ gulp.task('build', function() {
 /**
  * Remove old build folder before build
  */
-gulp.task('build-clean', function() {
+gulp.task('build:clean', function() {
     return gulp.src('./build', {read: false}).pipe(clean());
 });
 
 /**
  * Generate a new build folder
  */
-gulp.task('build-make', function() {
+gulp.task('build:make', function() {
     return gulp.src([
         './src/**/*'
     ]).pipe(
@@ -113,4 +114,35 @@ gulp.task('build-copy-node-modules', function() {
             gulp.src(nm + modules[z] + '/**/*').pipe(gulp.dest(destinations[i] + modules[z]));
         }
     }
+});
+
+/**
+ * Remove ./src/package.json
+ */
+gulp.task('remove-old-package-definition', function() {
+    return gulp.src('./src/package.json', {read: false}).pipe(clean());
+});
+
+/**
+ * Create dynamically package.json to generate the build.
+ */
+gulp.task('generate-source-package-json', ['remove-old-package-definition'],function() {
+
+    // I use some definitions from the main package.json
+    var packageDefinition = require('./package.json');
+
+    // Content for the file
+    var content = {
+        name: packageDefinition.name,
+        version: packageDefinition.version,
+        main: 'index.html',
+        dependencies: {}
+    };
+
+    // Convert Object to json string
+    var json = JSON.stringify(content, null, 2);
+
+    fs.writeFile('./src/package.json', json, function(err) {
+        if (err) throw err;
+    });
 });
