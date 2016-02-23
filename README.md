@@ -1,2 +1,2 @@
-# torrentPlay
-Stream torrents
+# Torrent Play
+Stream torrents via AirPlay
