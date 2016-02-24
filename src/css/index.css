@@ -1,26 +1,26 @@
 @font-face {
-  font-family: 'Open Sans';
-  src: url("../fonts/OpenSans-Regular-webfont.woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Regular-webfont.woff");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/OpenSans-Bold-webfont.woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Open Sans Bold";
+    src: url("../fonts/OpenSans-Bold-webfont.woff");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Open Sans Semibold';
-  src: url("../fonts/OpenSans-Semibold-webfont.woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Open Sans Semibold";
+    src: url("../fonts/OpenSans-Semibold-webfont.woff");
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
-    font-family: 'Open Sans Semibold';
+    font-family: "Open Sans Semibold";
     background-color: white;
     height: 275px;
 }
@@ -30,21 +30,21 @@ body div {
 }
 
 .center {
-    text-align:center;
+    text-align: center;
 }
 
 #top-message {
-    text-align:center;
+    text-align: center;
     color: rgba(1,1,1,0.45);
     height: 20px;
-    margin-top:25px;
+    margin-top: 25px;
 }
 
 #info-message {
-    text-align:center;
+    text-align: center;
     color: rgba(1,1,1,0.25);
     height: 20px;
-    margin-top:6px;
+    margin-top: 6px;
     font-size: 0.8em;
 }
 
@@ -55,9 +55,9 @@ body div {
 }
 
 #dropmessage {
-    width:265px;
-    height:200px;
-    position:fixed;
+    width: 265px;
+    height: 200px;
+    position: fixed;
     margin-top: 25px;
     z-index: 2;
 }
@@ -70,8 +70,7 @@ body div {
     height: 260px;
     width: 260px;
     border-radius: 0.7em;
-    margin: 0 auto;
-    margin-top: 17px;
+    margin: 17px auto 0 auto;
     border: 3px double rgba(1,1,1,0.15);
     background-color: #f5f5f5;
 }
@@ -81,29 +80,29 @@ body div {
 }
 
 #arroww {
-    margin-top:20px;
-    margin-left:75px;
+    margin-top: 20px;
+    margin-left: 75px;
     width: 50px;
     height: 50px;
 }
 
 #arroww:before{
-    content:"";
+    content: "";
     position: absolute;
-    margin-top:50px;
-    margin-left:-40px;
+    margin-top: 50px;
+    margin-left: -40px;
     border-top: 40px solid rgba(1,1,1,0.15);
     border-left: 40px solid rgba(1,1,1,0);
     width: 0;
 }
 
 #arroww:after{
-    content:"";
+    content: "";
     position: absolute;
-    margin-top:50px;
-    margin-left:0;
-    border-top: 40px solid rgba(1,1,1,0.15);
-    border-right: 40px solid rgba(1,1,1,0);
+    margin-top: 50px;
+    margin-left: 0;
+    border-top: 40px solid rgba(1, 1, 1, 0.15);
+    border-right: 40px solid rgba(1, 1, 1, 0);
     width: 0;
 }
 
@@ -119,7 +118,7 @@ body div {
 .cursored {
     cursor: pointer;
     color: blue;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 .offlabel {
@@ -127,47 +126,47 @@ body div {
 }
 
 .deviceicon {
-   content:url("../images/AirplaySmall.png");
+   content: url("../images/airplay-small.png");
 }
 
 .chromeicon {
-   content:url("../images/ChromecastSmall.png");
+   content: url("../images/chromecast-small.png");
 }
 
 .playbutton {
-    content:url("../images/play.png");
-    cursor:pointer;
+    content: url("../images/btn-play.png");
+    cursor: pointer;
 }
 
 .forwardbutton {
-    content:url("../images/forward.png");
-    cursor:pointer;
+    content: url("../images/btn-forward.png");
+    cursor: pointer;
 }
 
 .rewindbutton {
-    content:url("../images/rewind.png");
-    cursor:pointer;
+    content: url("../images/btn-rewind.png");
+    cursor: pointer;
 }
 
 .stopbutton {
     margin-top: -20px;
-   content:url("../images/stop.png");
-    cursor:pointer;
+    content: url("../images/btn-stop.png");
+    cursor: pointer;
 }
 
 .pausebutton {
     margin-top: -20px;
-   content:url("../images/pause.png");
-    margin-right:9px;
-    cursor:pointer;
+    content: url("../images/btn-pause.png");
+    margin-right: 9px;
+    cursor: pointer;
 }
 
 .deviceiconOff {
-    content:url("../images/AirplaySmallOff.png");
+    content: url("../images/airplay-small-off.png");
 }
 
 .ChromedeviceiconOff {
-    content:url("../images/ChromecastSmallOff.png");
+    content: url("../images/chromecast-small-off.png");
 }
 
 .controlbutton {
@@ -175,14 +174,14 @@ body div {
 }
 
 #airplay {
-    margin:auto;
+    margin: auto;
     width: 200px;
     height: 100px
     z-index: 3;
 }
 
 #topimages {
-    background: url("../images/logostop.png") no-repeat;
+    background: url("../images/logo-stop.png") no-repeat;
     margin-top: 25px;
     margin-bottom: -25px;
     height: 100px;
@@ -191,23 +190,23 @@ body div {
 
 #airplay img {
     clear: both;
-    width:auto; 
-    max-height:100%;
-    background-image: url("../images/AirplayIcon.png");
+    width: auto;
+    max-height: 100%;
+    background-image: url("../images/airplay-icon.png");
 }
 .device {
     font-size: 0.5em;
-    z-index:-1;
-    cursor:pointer;
+    z-index: -1;
+    cursor: pointer;
     display: inline-block;
 }
 
 .processing-icon {
-    content:"Hola";
-    margin:auto;
+    content: "";
+    margin: auto;
     background-image: url("../images/loading.gif");
-    width:32px;
-    height:32px;
+    width: 32px;
+    height: 32px;
 }
 
 .hidden {
@@ -215,7 +214,7 @@ body div {
 }
 
 #airplay-container {
-    height:100px;
+    height: 100px;
 }
 
 #processing {
