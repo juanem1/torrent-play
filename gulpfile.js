@@ -143,16 +143,18 @@ gulp.task('build-copy-node-modules', function() {
         'srt2vtt2'
     ];
 
-    var destinations = [
-        // OSX 32
-        'build/torrentPlay/osx32/torrentPlay.app/Contents/Resources/app.nw/node_modules/',
-        // OSX 64
-        'build/torrentPlay/osx64/torrentPlay.app/Contents/Resources/app.nw/node_modules/'
-    ];
+    var destinations = {
+        osx32: 'build/torrentPlay/osx32/torrentPlay.app/Contents/Resources/app.nw/node_modules/',
+        osx64: 'build/torrentPlay/osx64/torrentPlay.app/Contents/Resources/app.nw/node_modules/',
+        win32: 'build/torrentPlay/win32/node_modules/',
+        win64: 'build/torrentPlay/win64/node_modules/',
+        linux32: 'build/torrentPlay/linux32/node_modules/',
+        linux64: 'build/torrentPlay/linux64/node_modules/'
+    };
 
-    for (var i = 0, len = destinations.length; i < len; i++) {
+    for (var p = 0, len0 = BUILD_PLATFORMS.length; p < len0; p++) {
         for (var z = 0, len2 = modules.length; z < len2; z++) {
-            gulp.src(nm + modules[z] + '/**/*').pipe(gulp.dest(destinations[i] + modules[z]));
+            gulp.src(nm + modules[z] + '/**/*').pipe(gulp.dest(destinations[BUILD_PLATFORMS[p]] + modules[z]));
         }
     }
 });
@@ -167,7 +169,7 @@ gulp.task('remove-old-package-definition', function() {
 /**
  * Create dynamically package.json to generate the build.
  */
-gulp.task('generate-source-package-json', ['remove-old-package-definition'],function() {
+gulp.task('generate-source-package-json', ['remove-old-package-definition'], function() {
 
     // I use some definitions from the main package.json
     var packageDefinition = require('./package.json');
@@ -186,4 +188,7 @@ gulp.task('generate-source-package-json', ['remove-old-package-definition'],func
     fs.writeFile('./src/package.json', json, function(err) {
         if (err) throw err;
     });
+
+    // I need to return a gulp instance to not break the chain
+    return gulp.src('./src', {read: false});
 });
