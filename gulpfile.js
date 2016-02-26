@@ -4,13 +4,14 @@ var builder = require('gulp-nw-builder');
 var clean = require('gulp-clean');
 var runSequence = require('run-sequence');
 var fs = require('fs');
+var _ = require('lodash');
 
 /**
  * Available platforms:
  * win32, win64, osx32, osx64, linux32, linux64
  * @type {string[]}
  */
-var BUILD_PLATFORMS = ['osx64', 'linux64'];
+var BUILD_PLATFORMS = ['osx64'];
 var BUILD_VERSION   = 'v0.12.2';
 
 
@@ -134,14 +135,8 @@ gulp.task('build:make', function() {
 gulp.task('build-copy-node-modules', function() {
 
     var nm = './node_modules/';
-
-    var modules = [
-        'airplay-js',
-        'numeral',
-        'read-torrent',
-        'simple-cors-file-server',
-        'srt2vtt2'
-    ];
+    var packageDefinition = require('./package.json');
+    var modules = _.keysIn(packageDefinition.dependencies);
 
     var destinations = {
         osx32: 'build/torrentPlay/osx32/torrentPlay.app/Contents/Resources/app.nw/node_modules/',

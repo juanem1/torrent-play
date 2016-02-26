@@ -2,7 +2,7 @@ var httpServer;
 var PORT = 9999;
 var subData = '';
 var http = require('http');
-var iconv = require('iconv-lite');
+//var iconv = require('iconv-lite');
 
 var server = http.createServer(function(req, res) {
     if (req.headers.origin) {
@@ -26,7 +26,7 @@ function stopServer(cb) {
 
 var SubtitlesServer = {
     start: function (data, cb) {
-        iconv.extendNodeEncodings();
+        //iconv.extendNodeEncodings();
         var vtt = data.vtt;
         try {
             fs.readFile(vtt, {}, function (err, data) {

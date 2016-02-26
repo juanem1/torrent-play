@@ -24,7 +24,7 @@ var emitter = gui.Window.get();
 //count();
 //var chromecastjs = require('chromecast-js');
 count();
-var subtitles_server = new (require('./subtitles-server'))();
+var subtitles_server = require('./js/subtitleServer');
 count();
 var srt2vtt2 = require('srt2vtt2');
 count();
@@ -201,7 +201,7 @@ doc.ondrop2 = function(event) {
     event.preventDefault && event.preventDefault();
     this.className = '';
 
-    readTorrent(event.dataTransfer.files[0].path,function(err, torrent){
+    readTorrent(event.dataTransfer.files[0].path,function(err, torrent) {
         console.log('Dropped: ' + torrent);
         gotTorrent(torrent)
     });
